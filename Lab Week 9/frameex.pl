@@ -1,4 +1,3 @@
-
 :- dynamic has_part/2, isa/2.
 
 has_part(report,[author(_A),topic(_T),dday(_D),length(_L)]).
@@ -16,6 +15,13 @@ frame_test :-
 	retractall(has_part(progress_reportNo15,_Slots)),
 	retractall(isa(progress_reportNo15,_Report)),
 	make_frame(progress_report,progress_reportNo15,'Biological Classification Project'),
+	listing(has_part/2),
+	listing(isa/2).
+
+nano_test :-
+	retractall(has_part(tech_reportNo1,_Slots)),
+	retractall(isa(tech_reportNo1,_Report)),
+	make_frame(technical_report,tech_reportNo1,'Nano technology transfer'),
 	listing(has_part/2),
 	listing(isa/2).
 
@@ -40,6 +46,7 @@ fill_frame(_,_,_,_,_,_) :-
 	write('Report must have a name, type and topic').
 
 project_leader('Biological Classification Project','Mary Smith').
+project_leader('Nano technology transfer','Martha Rother').
 
 notify(A,T,D,L) :-
 	write('Dear '),write(A),nl,

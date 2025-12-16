@@ -26,8 +26,31 @@ prop(craig,room,r107).
 prop(r117,building,comp_sci).
 prop(r107,building,comp_sci).
 
+% Tom, Cat, Bird, Mammal, Animal semantic network
+prop(tom,is_a,cat).
+prop(tom,caught,bird).
+prop(cat,sat_on,mat).
+prop(cat,is_a,mammal).
+prop(cat,like,cream).
+prop(bird,is_a,animal).
+prop(mammal,is_a,animal).
+prop(mammal,has,fur).
+prop(ginger,is_a,cat).
+prop(ginger,is_owned_by,john).
+
+% Transitive is_a relationship
+prop(X,is_a,Z) :-
+    prop(X,is_a,Y),
+    prop(Y,is_a,Z).
+
+% Rule to prove "Tom caught an animal"
+caught_animal(X) :-
+    prop(X,caught,Y),
+    prop(Y,is_a,animal).
+
 % To generate Example 5.9 find all answers to the following query:
 % | ?- prop(Object,Property,Value).
 % Other examples entering the semantic net at various entry level points
 % ?- prop(Object,deliver_to,ming).
 % ?- prop(comp_2347,is_a,What).
+% ?- caught_animal(tom).
