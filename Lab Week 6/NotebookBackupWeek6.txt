@@ -1,0 +1,28 @@
+
+ 
+
+Using your Prolog fact representation and the code presented in the Lab, explain how each of the following searches would find the Goal Node G. Clearly show in your explanation the (1) The order in which the frontier is explored at each iteration (2) whether it finds the optimal path or not and why (3) the cost of expanding the frontier in terms of the nodes visited. 
+
+Heuristic best first search 
+
+Cost based best first search (greedy search) 
+
+A* search 
+
+  
+
+1: With the heuristic best first search it will start at a, evaluate both B and Cs but ultimately choose B due to the fact that it has a lower H value (c has h value of 4 whereas b has 3). From there it looks at d (h value 2) and e (h value of 3) and picks d because it is a lower h value again. However, since d is a deat end it goes back to the previous selection and chooses E instead. From E it can go to g or c but it chooses G due to the lower H value again. In total the cost of it (a -> b -> e -> g) is 10 which is not optimal. The optimal route would be A -> C -> F -> G which would be a path value cost of 8. 
+
+ 
+
+2: For the cost based search it starts at A again of course, from their it checks the path cost of both B and C which are tied at 5, due to this it picks B as it is next in order. Then from B it checks D (which would up the total cost to 10) and E (cost up to 7), in its frontier it has C(5), E(7), and D(10) so due to this it picks C to explore. From C it checks F(total cost 7), and G(total cost 10), now in its frontier it has F(7), E(7), D(10), G(10). Due to the tie here with F and E having the same total cost we will say it explores E first. From E it adds G to the frontier (total cost of 10) and C (which it has already visited), now the frontier contains F(7), D (10), G(10). Due to the lower cost it goes with F, from F it explores G(total cost of 8) and due to this now being the cheapest path it chooses G with the cost of 8.  
+
+It's final path is A -> C -> F -> G which as previously mentioned is the optimal path with a total of 6 nodes visited.  
+
+ 
+
+3: For the A* search it starts again at A. From here it checks both C and B but now calculating the actual cost as well as the heuristic value (F in this case for future referencing). For B there is an f value of 8 and for C, an f value of 9. Due to this it picks B due to the lower f value. Now it checks the connecting nodes of D(f = 12) and E(f = 10), now in its frontier it has C(9), E(10), and D(12) so due to this it chooses C to explore. From C it checks F(with an f value of 0) and G( which has an f value of 10), now in its frontier it has F(9), E(10), G(10) and D(12). Here F has the lowest f value and therefore it is the option the A* Search chooses. From F it adds G to the frontier with an f value of 8 and now G is the path with the lowest f value in the frontier thus it chooses and reaches its goal.   
+
+Its final path is A -> C -> F -> G which is the same optimal path as before but it is also more efficient as the A* only visited 5 nodes which is less when in comparison to the cost based searches result with 6 nodes visited.  
+
+ 

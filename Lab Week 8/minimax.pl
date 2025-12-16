@@ -4,41 +4,35 @@
 % minimax( Pos, BestSucc, Val):
 %    Pos is a position, Val is its minimax value;
 %    best move from Pos leads to position BestSucc
-max_to_move( a).
-max_to_move( d).
-max_to_move( e).
-max_to_move( f).
-max_to_move( g).
+max_to_move( root).
+max_to_move( a11).
+max_to_move( a12).
+max_to_move( a13).
+max_to_move( a21).
+max_to_move( a22).
+max_to_move( a23).
+max_to_move( a31).
+max_to_move( a32).
+max_to_move( a33).
 
+min_to_move( a1).
+min_to_move( a2).
+min_to_move( a3).
 
-min_to_move( b).
-min_to_move( c).
+staticval( a11, 3).
+staticval( a12, 12).
+staticval( a13, 8).
+staticval( a21, 2).
+staticval( a22, 4).
+staticval( a23, 6).
+staticval( a31, 14).
+staticval( a32, 5).
+staticval( a33, 2).
 
-min_to_move( i).
-min_to_move( j).
-min_to_move( k).
-min_to_move( l).
-min_to_move( m).
-min_to_move( n).
-min_to_move( o).
-min_to_move( p).
-
-staticval( i, 1).
-staticval( j, 4).
-staticval( k, 5).
-staticval( l, 6).
-staticval( m, 2).
-staticval( n, 1).
-staticval( o, 1).
-staticval( p, 1).
-
-moves( a, [b,c]).
-moves( b, [d,e]).
-moves( c, [f,g]).
-moves( d, [i,j]).
-moves( e, [k,l]).
-moves( f, [m,n]).
-moves( g, [o,p]).
+moves( root, [a1, a2, a3]).
+moves( a1, [a11, a12, a13]).
+moves( a2, [a21, a22, a23]).
+moves( a3, [a31, a32, a33]).
 
 minimax( Pos, BestSucc, Val)  :-
   moves( Pos, PosList), !,               % Legal moves in Pos produce PosList
