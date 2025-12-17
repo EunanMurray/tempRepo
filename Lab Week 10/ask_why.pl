@@ -15,8 +15,6 @@
 
 % aprove(G) is true if G can be proven perhaps by asking the user.
 
-:-ensure_loaded(elect_a).
-
 aprove(G) :-
    wprove(G,[]).
 
